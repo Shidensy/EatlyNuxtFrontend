@@ -49,18 +49,20 @@ export default defineNuxtConfig({
     },
     modules: ["@pinia/nuxt", "@nuxt/image"],
     nitro: {
+        routeRules: {
+            "/api/**": {proxy: "http://127.0.0**"},
+        },
         externals: {
             external: ["markdown-it"],
         },
     },
-    pinia: {
-        storesDirs: ["./stores/**"], // Auto-imports stores from this directory
-    },
     runtimeConfig: {
-        apiBase: "http://127.0.0.1:8000",
-
         public: {
             apiBase: "/api",
         },
+    },
+
+    pinia: {
+        storesDirs: ["./stores/**"], // Auto-imports stores from this directory
     },
 });
