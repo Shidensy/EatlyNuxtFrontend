@@ -22,11 +22,4 @@ export default defineNuxtRouteMiddleware(async (to, from) => {
             return navigateTo("/sign-in");
         }
     }
-
-    if (!hasToken) {
-        return navigateTo({
-            path: "/sign-in",
-            query: {redirect: to.fullPath},
-        });
-    }
 });
