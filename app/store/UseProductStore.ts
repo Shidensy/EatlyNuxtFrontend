@@ -40,7 +40,7 @@ export const useProductStore = defineStore("product", {
         async getProduct(id: number) {
             try {
                 const config = useRuntimeConfig();
-                this.product = await $fetch<Product>(`${config.apiBase}/products/${id}`);
+                this.product = await $fetch<Product>(`${config.public.apiBase}/products/${id}`);
             } catch (err: any) {
                 console.log(err);
             }
@@ -52,7 +52,7 @@ export const useProductStore = defineStore("product", {
             }
             try {
                 const config = useRuntimeConfig();
-                this.searchResults = await $fetch<Product[]>(`${config.apiBase}/products/`, {
+                this.searchResults = await $fetch<Product[]>(`${config.public.apiBase}/products/`, {
                     query: {q: queryText, limit: 5},
                 });
             } catch (err: any) {
