@@ -1,0 +1,126 @@
+@use "reset";
+@use "animations";
+@use "mixins";
+@use "variables";
+@use "fonts";
+
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    overflow-y: overlay;
+    color-scheme: light;
+    scrollbar-color: #cbcbcb #8f8b8b;
+    scrollbar-width: thin;
+    opacity: 0;
+    animation: fadeInDev 0.15s ease-in-out forwards;
+}
+
+html::-webkit-scrollbar {
+    width: 10px;
+}
+
+body {
+    font-family: $font-poppins;
+    font-size: 16px;
+    background: #f9f9f9;
+}
+
+button {
+    outline: none;
+}
+
+.container {
+    margin: 0 auto;
+    padding: 0 15px;
+    max-width: 1250px;
+}
+
+.none {
+    display: none !important;
+}
+
+.no-scroll {
+    overflow-y: hidden;
+}
+
+.show {
+    display: block !important;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+section {
+    width: 100%;
+    padding: 65px 0;
+}
+
+.border {
+    position: relative;
+    padding-bottom: 100px;
+
+    &::after,
+    &::before {
+        content: "";
+        position: absolute;
+        bottom: 35px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: calc(100% - 30px);
+        max-width: 1220px;
+        height: 1px;
+        background-color: #cbcbcb;
+    }
+
+    &::before {
+        display: none;
+        width: 100%;
+    }
+
+    @include mobile {
+        padding-bottom: 70px;
+
+        &::after {
+            display: none;
+        }
+
+        &::before {
+            display: block;
+        }
+    }
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    position: relative;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    appearance: textfield;
+    -moz-appearance: textfield;
+}
