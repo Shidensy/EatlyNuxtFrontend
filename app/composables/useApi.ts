@@ -3,7 +3,7 @@ import {useAuthStore} from "~/store/UseAuthStore";
 export async function useApi<T>(request: string, options: any = {}): Promise<T> {
     const authStore = useAuthStore();
     const config = useRuntimeConfig();
-    const apiBase = config.public.apiBase || "http://localhost:8000";
+    const apiBase = config.apiBase;
 
     const headers = {
         ...options.headers,

@@ -57,8 +57,10 @@ export default defineNuxtConfig({
         storesDirs: ["./stores/**"], // Auto-imports stores from this directory
     },
     runtimeConfig: {
+        apiBase: "http://127.0.0.1:8000",
+
         public: {
-            apiBase: "http://localhost:8000",
+            apiBase: "/api",
         },
     },
 });

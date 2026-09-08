@@ -11,7 +11,7 @@ export const useRestaurantStore = defineStore("restaurant", {
         async getRestaurants() {
             try {
                 const config = useRuntimeConfig();
-                this.restaurants = await $fetch<RestaurantResponse[]>(`${config.public.apiBase}/restaurants/`);
+                this.restaurants = await $fetch<RestaurantResponse[]>(`${config.apiBase}/restaurants/`);
             } catch (err: any) {
                 console.log(err);
             }
@@ -20,7 +20,7 @@ export const useRestaurantStore = defineStore("restaurant", {
         async getRestaurant(id: number) {
             try {
                 const config = useRuntimeConfig();
-                this.restaurant = await $fetch<RestaurantResponse>(`${config.public.apiBase}/restaurants/${id}`);
+                this.restaurant = await $fetch<RestaurantResponse>(`${config.apiBase}/restaurants/${id}`);
             } catch (err: any) {
                 console.log(err);
             }

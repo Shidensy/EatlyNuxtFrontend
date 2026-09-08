@@ -12,7 +12,7 @@ export const useReviewStore = defineStore("review", {
         async getReviews() {
             try {
                 const config = useRuntimeConfig();
-                this.reviews = await $fetch<Review[]>(`${config.public.apiBase}/reviews/`);
+                this.reviews = await $fetch<Review[]>(`${config.apiBase}/reviews/`);
             } catch (err: any) {
                 console.log(err);
             }

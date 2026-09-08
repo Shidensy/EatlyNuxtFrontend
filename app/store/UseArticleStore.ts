@@ -17,7 +17,7 @@ export const useArticleStore = defineStore("article", {
         async getArticles() {
             try {
                 const config = useRuntimeConfig();
-                this.articles = await $fetch<ArticleResponse[]>(`${config.public.apiBase}/articles/`);
+                this.articles = await $fetch<ArticleResponse[]>(`${config.apiBase}/articles/`);
             } catch (err: any) {
                 console.log(err);
             }
@@ -26,7 +26,7 @@ export const useArticleStore = defineStore("article", {
         async getArticle(id: string) {
             try {
                 const config = useRuntimeConfig();
-                this.article = await $fetch<ArticleResponse>(`${config.public.apiBase}/articles/${id}`);
+                this.article = await $fetch<ArticleResponse>(`${config.apiBase}/articles/${id}`);
             } catch (err: any) {
                 console.log(err);
             }
