@@ -15,7 +15,7 @@ import Email from "~/assets/icons/email.svg";
             <AuthFormInput type="email" autocomplete="off" id="email" name="email" placeholder="enter your email" />
         </AuthFormField>
 
-        <AuthFormSubmit>Verify</AuthFormSubmit>
+        <BaseDefaultBtn style="width: 100%">Verify</BaseDefaultBtn>
     </AuthForm>
 </template>
 
